@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Page</title>
+    <link rel="stylesheet" href="hel.css">
+</head>
+<body>
+    <div id="header">
+        <nav>
+            <a href="index.html"><button style="color: tomato; background-color: yellow;">Back</button></a>
+        </nav>
+    </div>
+    <div class="container">
+        <header>
+            <h1>Help Center</h1>
+        </header>
+
+        <section class="search">
+            <input type="text" id="searchBar" placeholder="Search for help...">
+        </section>
+        
+        <h2 style="color: rgb(0, 255, 17);">Most Asked Questions</h2>
+        <section class="most-asked">
+            <ul>
+                <li><label for="popup1">How to create a C++ project in Visual Studio?</label></li>
+                <li><label for="popup2">How to compile and run a C++ program in the terminal?</label></li>
+                <li><label for="popup3">How to create a GitHub repository?</label></li>
+                <li><label for="popup4">How to push code to GitHub using Git?</label></li>
+                <li><label for="popup5">How to clone a GitHub repository to your local machine?</label></li>
+                <li><label for="popup6">How to fork a repository on GitHub?</label></li>
+                <li><label for="popup7">How to create a pull request in GitHub?</label></li>
+                <li><label for="popup8">How to resolve merge conflicts in Git?</label></li>
+                <li><label for="popup9">How to set up a Git remote repository?</label></li>
+                <li><label for="popup10">How to check the status of your Git repository?</label></li>
+                <li><label for="popup11">How to make a bootable USB drive for Windows 10/11/7?</label></li>
+                <li><label for="popup12">How to boot from a USB drive in Windows?</label></li>
+                <li><label for="popup13">How to create a bootable USB for Linux (Ubuntu, Kali)?</label></li>
+                <li><label for="popup14">How to create a persistent bootable USB for Linux?</label></li>
+                <li><label for="popup15">How to install Ubuntu from a USB drive?</label></li>
+                <li><label for="popup16">How to install Kali Linux from a USB drive?</label></li>
+                <li><label for="popup17">How to update Linux packages using terminal?</label></li>
+                <li><label for="popup18">How to check disk usage in Linux?</label></li>
+                <li><label for="popup19">How to change file permissions in Linux?</label></li>
+                <li><label for="popup20">How to find and kill a process in Linux?</label></li>
+                <li><label for="popup21">How to check available disk space in Linux?</label></li>
+                <li><label for="popup22">How to create a new branch in Git?</label></li>
+                <li><label for="popup23">How to remove a file from Git tracking?</label></li>
+                <li><label for="popup24">How to revert changes in Git?</label></li>
+                <li><label for="popup25">How to write a simple C++ function?</label></li>
+                <li><label for="popup26">How to use pointers in C++?</label></li>
+                <li><label for="popup27">How to handle exceptions in C++?</label></li>                               
+            </ul>
+        </section>
+    </div>
+
+    <!-- Popups for each question -->
+    <input type="checkbox" id="popup1" class="popup-toggle">
+    <div class="popup">
+        <label for="popup1" class="popup-close">X</label>
+        <p>To create a C++ project in Visual Studio, open Visual Studio, click on "Create a new project," select "Console App" in C++, and follow the prompts.</p>
+    </div>
+
+    <input type="checkbox" id="popup2" class="popup-toggle">
+    <div class="popup">
+        <label for="popup2" class="popup-close">X</label>
+        <p>To compile and run a C++ program in the terminal, use the command <code>g++ filename.cpp -o outputname</code> to compile and <code>./outputname</code> to run.</p>
+    </div>
+
+    <!-- Add more popups here as needed for other questions -->
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const searchBar = document.getElementById('searchBar');
+    const items = document.querySelectorAll('.most-asked ul li');
+    const showMoreBtn = document.createElement('button');
+    let visibleCount = 5;
+
+    // Initially display only the first 5 items
+    function updateVisibleItems() {
+        items.forEach((item, index) => {
+            if (index < visibleCount) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+
+    }
+    updateVisibleItems();
+
+    // Filter items based on search input
+    searchBar.addEventListener('input', function () {
+        const searchTerm = this.value.toLowerCase();
+
+        items.forEach((item) => {
+            const text = item.textContent.toLowerCase();
+            if (text.includes(searchTerm)) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    });
+});
+</script>
+</body>
+</html>
